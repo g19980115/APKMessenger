@@ -8,7 +8,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
@@ -29,6 +32,7 @@ public class WinMain {
     private Label label6;
     private Label label7;
     private Label label8;
+    private Label label9;
     private JTextField Edit_FilePath;
     private JTextField Edit_AppName;
     private JTextField Edit_PackageName;
@@ -36,6 +40,8 @@ public class WinMain {
     private JTextField Edit_Version;
     private JTextField Edit_MD5;
     private JTextField Edit_PEInfo;
+    private JTextField Edit_Json;
+    private JTextField Edit_FileSize;
     private JButton Btn_ll;
     private JButton Btn_AppName;
     private JButton Btn_PackageName;
@@ -43,6 +49,8 @@ public class WinMain {
     private JButton Btn_Version;
     private JButton Btn_MD5;
     private JButton Btn_PEInfo;
+    private JButton Btn_json;
+    private JButton Btn_ExportImg;
     private JComboBox jComboBox_lang;
     private Thread ThreadMain;
     private ApkinfotoUI apkinfotoUI;
@@ -59,7 +67,7 @@ public class WinMain {
     public void CreatWin() {
         setUI();
         win = new JFrame("APK Messenger v3.0");
-        win.setSize(586, 277);
+        win.setSize(586, 309);
         win.setLocationRelativeTo(null);
         win.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         win.setResizable(false);
@@ -129,7 +137,8 @@ public class WinMain {
         label5 = DrowLable("文件MD5：", 168, 136, 56, 24);
         label6 = DrowLable("加固类型：", 168, 168, 56, 24);
         label7 = DrowLable("版本号：", 377, 104, 45, 24);
-        label8 = DrowLable("展开》》》", 500, 200, 64, 24);
+        label8 = DrowLable("展开》》》", 500, 232, 64, 24);
+        label9 = DrowLable("JSON：", 168, 200, 56, 24);
         label8.setCursor(new Cursor(Cursor.HAND_CURSOR));
         label8.addMouseListener(new MouseListener() {
             @Override
@@ -142,12 +151,12 @@ public class WinMain {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if (win.getHeight() == 535) {
+                if (win.getHeight() == 567) {
                     label8.setText("展开》》》");
-                    win.setSize(586, 277);
+                    win.setSize(586, 309);
                 } else {
                     label8.setText("收起《《《");
-                    win.setSize(586, 535);
+                    win.setSize(586, 567);
                 }
             }
 
@@ -171,6 +180,14 @@ public class WinMain {
         Edit_Version = DrowEdit("", 424, 104, 64, 24);
         Edit_MD5 = DrowEdit("", 232, 136, 256, 24);
         Edit_PEInfo = DrowEdit("", 232, 168, 256, 24);
+        Edit_Json = DrowEdit("", 232, 200, 256, 24);
+        Edit_FileSize = DrowEdit("", 8, 186, 64, 24);
+
+        Edit_FilePath.setEditable(false);
+        setEditable(false, Edit_FilePath, Edit_AppName, Edit_PackageName,
+                Edit_VersionName, Edit_Version, Edit_MD5, Edit_PEInfo, Edit_Json, Edit_FileSize);
+
+
         //绘制按钮
         Btn_ll = DrowBtn("浏览", 497, 16, 72, 24);
         Btn_AppName = DrowBtn("复制", 497, 46, 72, 24);
@@ -179,23 +196,30 @@ public class WinMain {
         Btn_Version = DrowBtn("复制", 497, 104, 72, 24);
         Btn_MD5 = DrowBtn("复制", 497, 136, 72, 24);
         Btn_PEInfo = DrowBtn("复制", 497, 168, 72, 24);
+        Btn_json = DrowBtn("复制", 497, 200, 72, 24);
+        Btn_ExportImg = DrowBtn("导出图片", 82, 186, 80, 24);
         //事件绑定
-        Btn_ll.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                FileNameExtensionFilter fileNameExtensionFilter = new FileNameExtensionFilter("安卓apk文件", "apk");
-                fileChooser.addChoosableFileFilter(fileNameExtensionFilter);
-                fileChooser.setFileFilter(fileNameExtensionFilter);
-                fileChooser.showOpenDialog(win.getContentPane());
-            }
+        Btn_ll.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            FileNameExtensionFilter fileNameExtensionFilter = new FileNameExtensionFilter("安卓apk文件", "apk");
+            fileChooser.addChoosableFileFilter(fileNameExtensionFilter);
+            fileChooser.setFileFilter(fileNameExtensionFilter);
+            fileChooser.showOpenDialog(win.getContentPane());
         });
+        Btn_AppName.addActionListener(actionListener);
+        Btn_PackageName.addActionListener(actionListener);
+        Btn_VersionName.addActionListener(actionListener);
+        Btn_Version.addActionListener(actionListener);
+        Btn_MD5.addActionListener(actionListener);
+        Btn_PEInfo.addActionListener(actionListener);
+        Btn_json.addActionListener(actionListener);
+        Btn_ExportImg.addActionListener(actionListener);
+
         JCheckBox top = new JCheckBox("窗口顶置");
-        top.setBounds(8, 200, 96, 24);
+        top.setBounds(8, 232, 96, 24);
         top.setBackground(WRITE);
-        top.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                win.setAlwaysOnTop(top.isSelected());//窗口顶置
-            }
+        top.addActionListener(e -> {
+            win.setAlwaysOnTop(top.isSelected());//窗口顶置
         });
         top.setFocusable(false);
 
@@ -211,7 +235,7 @@ public class WinMain {
         jPanel_Otherinfo.setBackground(WRITE);
         jTabbedPane = new JTabbedPane();
         jTabbedPane.setBackground(WRITE);
-        jPanel_Main.setBounds(8, 232, 560, 248);
+        jPanel_Main.setBounds(8, 264, 560, 248);
         jPanel_Main.setBackground(WRITE);
         jTabbedPane.setBounds(8, 0, 550, 240);
         jPanel_Main.setLayout(null);
@@ -232,12 +256,12 @@ public class WinMain {
         };
         jTable_Permissions.setGridColor(WRITE);
 
-        JScrollPane jScrollPane_Permissions=new JScrollPane(jTable_Permissions);//拖动面板
-       jScrollPane_Permissions.setBorder(BorderFactory.createLineBorder(WRITE));
+        JScrollPane jScrollPane_Permissions = new JScrollPane(jTable_Permissions);//拖动面板
+        jScrollPane_Permissions.setBorder(BorderFactory.createLineBorder(WRITE));
         jTable_Permissions.getTableHeader().setReorderingAllowed(false);//禁止拖动
 
         jPanel_Permissions.setLayout(new BorderLayout());
-      // jScrollPane_Permissions.setOpaque(false);
+        // jScrollPane_Permissions.setOpaque(false);
         jScrollPane_Permissions.setBackground(WRITE);
         jPanel_Permissions.add(jScrollPane_Permissions, BorderLayout.CENTER);
 
@@ -290,9 +314,11 @@ public class WinMain {
         jTabbedPane.addTab("签名信息", jPanel_Sign);
         jTabbedPane.addTab("其他信息", jPanel_Otherinfo);
         //添加组件
-        addobj(Edit_AppName, Edit_FilePath, Edit_MD5, Edit_PackageName, Edit_PEInfo, Edit_Version, Edit_VersionName);
-        addobj(label1, label2, label3, label4, label5, label6, label7, label8);
-        addobj(Btn_AppName, Btn_ll, Btn_MD5, Btn_PackageName, Btn_PEInfo, Btn_Version, Btn_VersionName, jComboBox_lang, top);
+        addobj(Edit_AppName, Edit_FilePath, Edit_MD5, Edit_PackageName, Edit_PEInfo,
+                Edit_Json, Edit_FileSize, Edit_Version, Edit_VersionName);
+        addobj(label1, label2, label3, label4, label5, label6, label7, label8, label9);
+        addobj(Btn_AppName, Btn_ll, Btn_MD5, Btn_PackageName, Btn_PEInfo, Btn_json,
+                Btn_ExportImg, Btn_Version, Btn_VersionName, jComboBox_lang, top);
         addobj(jPanel_Main);
         addDropTarget(win.getContentPane());
         addDropTarget(Edit_AppName);
@@ -302,13 +328,52 @@ public class WinMain {
         addDropTarget(Edit_PEInfo);
         addDropTarget(Edit_Version);
         addDropTarget(Edit_VersionName);
-
+        addDropTarget(Edit_Json);
+        addDropTarget(Edit_FileSize);
 
         addDropTarget(IcoBox);
         win.setVisible(true);
-        apkinfotoUI = new ApkinfotoUI(Edit_FilePath, Edit_AppName, Edit_PackageName, Edit_VersionName, Edit_Version, Edit_MD5
-                , Edit_PEInfo, jComboBox_lang, IcoBox,jTable_Permissions,jTable_Sign,jTable_Otherinfo);
+        apkinfotoUI = new ApkinfotoUI(Edit_FilePath, Edit_AppName, Edit_PackageName,
+                Edit_VersionName, Edit_Version, Edit_MD5, Edit_PEInfo, Edit_Json, Edit_FileSize,
+                jComboBox_lang, IcoBox, jTable_Permissions, jTable_Sign, jTable_Otherinfo);
     }
+
+    private void setEditable(boolean enable, JTextField... ts) {
+        for (JTextField t : ts) {
+            t.setEditable(enable);
+        }
+    }
+
+    private void copy(String text) {
+        Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable tText = new StringSelection(text);
+        clip.setContents(tText, null);
+    }
+
+    private ActionListener actionListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Object source = e.getSource();
+            if (source == Btn_AppName) {//APP名
+                copy(Edit_AppName.getText());
+            } else if (source == Btn_PackageName) {//包名
+                copy(Edit_PackageName.getText());
+            } else if (source == Btn_VersionName) {//版本名
+                copy(Edit_VersionName.getText());
+            } else if (source == Btn_Version) {//版本号
+                copy(Edit_Version.getText());
+            } else if (source == Btn_MD5) {//MD5
+                copy(Edit_MD5.getText());
+            } else if (source == Btn_json) {//JSON
+                copy(Edit_Json.getText());
+            } else if (source == Btn_PEInfo) {
+                copy(Edit_PEInfo.getText());
+            } else if (source == Btn_ExportImg) {
+                copy(apkinfotoUI.exportImg());
+                JOptionPane.showMessageDialog(win, "已导出到桌面且已复制路径", "注意！", 1);
+            }
+        }
+    };
 
     private void addDropTarget(Component obj) {
         DropTarget dropTarget = CreatdropTarget();
@@ -336,7 +401,7 @@ public class WinMain {
                                 public void run() {
 
 
-                                     apkinfotoUI.OpenApkFile(FileName);
+                                    apkinfotoUI.OpenApkFile(FileName);
                                 }
                             });
                             ThreadMain.start();

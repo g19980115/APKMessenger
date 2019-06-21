@@ -13,7 +13,7 @@ public class ApkUtil {
     public static final String APPLICATION_LABEL = "application-label";
     public static final String APPLICATION_LABEL_N = "application: label";
     public static final String DENSITIES = "densities";
-    public static final String AppName="application-label";
+    public static final String AppName = "application-label";
     public static final String LAUNCHABLE_ACTIVITY = "launchable";
     public static final String PACKAGE = "package";
     public static final String SDK_VERSION = "sdkVersion";
@@ -99,17 +99,24 @@ public class ApkUtil {
         //System.out.println("*******************************");
         if (source.startsWith(APPLICATION)) {
             //System.out.println(APPLICATION + " : ");
-            String[] rs = source.split("( icon=')|'");
-            apkInfo.setIcon(rs[rs.length - 1]);
+            if (apkInfo.getIcon() == null) {
+                String[] rs = source.split("( icon=')|'");
+                apkInfo.setIcon(rs[rs.length - 1]);
+            }
         } else if (source.startsWith(APPLICATION_ICON)) {
             //System.out.println(APPLICATION_ICON + " : ");
-            apkInfo.addToIcons(getKeyBeforeColon(source), getPropertyInQuote(source));
+            String key = getKeyBeforeColon(source);
+            String value = getPropertyInQuote(source);
+            apkInfo.addToIcons(key, value);
+            if (key.equals("application-icon-320")) {
+                apkInfo.setIcon(value);
+            }
 
-        }else if (source.startsWith(AppName)){
+        } else if (source.startsWith(AppName)) {
             //System.out.println("添加名称："+getPropertyInQuote(source));
             String[] rs = getKeyBeforeColon(source).split("-");
             apkInfo.addAppNameKey(rs[rs.length - 1]);
-            apkInfo.addAppName(rs[rs.length - 1],getPropertyInQuote(source));
+            apkInfo.addAppName(rs[rs.length - 1], getPropertyInQuote(source));
         } else if (source.startsWith(APPLICATION_LABEL)) {
             //System.out.println(APPLICATION_LABEL + " : ");
             apkInfo.setLabel(getPropertyInQuote(source));
@@ -132,12 +139,12 @@ public class ApkUtil {
             //System.out.println(USES_PERMISSION + " : ");
             apkInfo.addToUsesPermissions(getPropertyInQuote(source));
         } else if (source.startsWith(USES_FEATURE)) {
-           // System.out.println(USES_FEATURE + " : ");
+            // System.out.println(USES_FEATURE + " : ");
             apkInfo.addToFeatures(getPropertyInQuote(source));
         } else {
             //System.out.println("Others : ");
         }
-       // System.out.println(source);
+        // System.out.println(source);
     }
 
     private String getKeyBeforeColon(String source) {

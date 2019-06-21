@@ -4,11 +4,14 @@ import ToolUtil.*;
 import apkinfo.ApkInfo;
 import apkinfo.ApkUtil;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
@@ -24,9 +27,12 @@ public class ApkinfotoUI {
     private JTextField Edit_Version;
     private JTextField Edit_MD5;
     private JTextField Edit_PEInfo;
+    private JTextField Edit_Json;
+    private JTextField Edit_FileSize;
     private JComboBox jComboBox_lang;
     private Map AppName;
     private List AppNamekey;
+    private String icoPath;
     private ItemListener itemListener;
     private String FilePath;
     private JLabel IcoBox;
@@ -34,11 +40,13 @@ public class ApkinfotoUI {
     private JTable jTable_Sign;
     private JTable jTable_Otherinfo;
 
-    public ApkinfotoUI(JTextField Edit_FilePath, JTextField Edit_AppName, JTextField Edit_PackageName, JTextField Edit_VersionName,
-                       JTextField Edit_Version, JTextField Edit_MD5, JTextField Edit_PEInfo, JComboBox jComboBox_lang, JLabel IcoBox, JTable jTable_Permissions
+    public ApkinfotoUI(JTextField Edit_FilePath, JTextField Edit_AppName,
+                       JTextField Edit_PackageName, JTextField Edit_VersionName,
+                       JTextField Edit_Version, JTextField Edit_MD5, JTextField Edit_PEInfo,
+                       JTextField Edit_Json, JTextField Edit_FileSize, JComboBox jComboBox_lang, JLabel IcoBox,
+                       JTable jTable_Permissions
             , JTable jTable_Sign, JTable jTable_Otherinfo
     ) {
-
 
 
         this.Edit_FilePath = Edit_FilePath;
@@ -48,6 +56,8 @@ public class ApkinfotoUI {
         this.Edit_PEInfo = Edit_PEInfo;
         this.Edit_Version = Edit_Version;
         this.Edit_VersionName = Edit_VersionName;
+        this.Edit_Json = Edit_Json;
+        this.Edit_FileSize = Edit_FileSize;
         this.jComboBox_lang = jComboBox_lang;
         this.IcoBox = IcoBox;
         this.jTable_Permissions = jTable_Permissions;
@@ -69,64 +79,74 @@ public class ApkinfotoUI {
 
         Edit_VersionName.setText(apkInfo.getVersionName());
         Edit_Version.setText(apkInfo.getVersionCode());
+        Edit_FileSize.setText(convertFileSize(apkInfo.getSize()));
         AppName = apkInfo.getAppName();
         AppNamekey = apkInfo.getAppNameKey();
 
+        int zh_CN_index = -1;
+        int index = -1;
         if (AppNamekey.size() != 0) {
             jComboBox_lang.removeAllItems();
             for (Object key : AppNamekey) {
+                ++index;
+                if (key.equals("zh_CN")) {
+                    zh_CN_index = index;
+                }
                 if (key.equals("label")) {
                     jComboBox_lang.addItem("默认");
                 } else {
                     jComboBox_lang.addItem(key);
                 }
             }
-            Edit_AppName.setText((String) AppName.get("label"));
+
+            if (zh_CN_index != -1) {
+                jComboBox_lang.setSelectedIndex(zh_CN_index);
+                jComboBox_lang.setSelectedItem("zh_CN");
+                Edit_AppName.setText((String) AppName.get("zh_CN"));
+
+            } else {
+                Edit_AppName.setText((String) AppName.get("label"));
+            }
         }
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Edit_MD5.setText("正在读取MD5");
-                File file = new File(FilePath);
-                String md5 = Md5CaculateUtil.getMD5(file);
-                Edit_MD5.setText(md5.toUpperCase());
-            }
+        new Thread(() -> {
+            Edit_MD5.setText("正在读取MD5");
+            File file = new File(FilePath);
+            String md5 = Md5CaculateUtil.getMD5(file);
+            if (md5 == null) md5 = "读取失败";
+            Edit_MD5.setText(md5.toUpperCase());
         }).start();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Edit_PEInfo.setText("读取加固信息中");
-                    List SoList = ZipUtil.readZipFile(FilePath, "lib/");
-                    SoInfoUtil soInfoUtil = new SoInfoUtil();
-                    String soname = "";
-                    for (Object s : SoList) {
-                        System.out.println(s);
-                        File tempFile = new File((String) s);
-                        String fileName = tempFile.getName();
-                        soname = soInfoUtil.IsThisSo(fileName);
-                        if (soname.length() != 0) {
-                            break;
-                        }
-                    }
+        new Thread(() -> {
+            try {
+                Edit_PEInfo.setText("读取加固信息中");
+                List SoList = ZipUtil.readZipFile(FilePath, "lib/");
+                SoInfoUtil soInfoUtil = new SoInfoUtil();
+                String soname = "";
+                for (Object s : SoList) {
+                    System.out.println(s);
+                    File tempFile = new File((String) s);
+                    String fileName = tempFile.getName();
+                    soname = soInfoUtil.IsThisSo(fileName);
                     if (soname.length() != 0) {
-                        Edit_PEInfo.setText(soname);
-                    } else {
-                        Edit_PEInfo.setText("没有加固或者未知加固");
+                        break;
                     }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
+                }
+                if (soname.length() != 0) {
+                    Edit_PEInfo.setText(soname);
+                } else {
+                    Edit_PEInfo.setText("没有加固或者未知加固");
                 }
 
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+
         }).start();
 
         //图标读取
 
-        String icopath = apkInfo.getIcon();
+        icoPath = apkInfo.getIcon();
     /*    Map map=apkInfo.getIcons();
         for (Object key : map.keySet()) {
             System.out.println(key + ":" + map.get(key));
@@ -156,6 +176,13 @@ public class ApkinfotoUI {
             }
         }
 
+        String json = "{\"appName\":\"%s\",\"versionCode\":\"%s\",\"versionName\":\"%s\",\"pkgId\":\"%s\""
+                + ",\"apkPath\":\"%s\",\"iconPath\":\"%s\"}";
+        String outJson = String.format(json, Edit_AppName.getText(),
+                apkInfo.getVersionCode(), apkInfo.getVersionName(),
+                apkInfo.getPackageName(), FilePath.replaceAll("\\\\", "\\\\\\\\"), "");
+        Edit_Json.setText(outJson);
+
         DefaultTableModel jTable_PermissionsTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -167,7 +194,7 @@ public class ApkinfotoUI {
         String DataArray[][] = new String[map.size()][4];
         for (Object key : map.keySet()) {
             PermissionsObj obj = (PermissionsObj) map.get(key);
-            DataArray[i][0] = String.valueOf(i+1);
+            DataArray[i][0] = String.valueOf(i + 1);
             DataArray[i][1] = obj.getPermissionskey();
             DataArray[i][2] = obj.getPermissionsName();
             DataArray[i][3] = obj.getPermissionsExplan();
@@ -175,7 +202,7 @@ public class ApkinfotoUI {
         }
         //构建表格模型
         String[] jTable_Permissions_colname = {"编号", "英文名", "权限名称", "权限注释"};
-        DefaultTableModel model = new DefaultTableModel(DataArray, jTable_Permissions_colname){
+        DefaultTableModel model = new DefaultTableModel(DataArray, jTable_Permissions_colname) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -188,16 +215,17 @@ public class ApkinfotoUI {
         jTable_Permissions.getColumnModel().getColumn(2).setPreferredWidth(120);
         jTable_Permissions.getColumnModel().getColumn(3).setPreferredWidth(400);
 
+        System.out.println("iconpath=" + icoPath);
         //end
         File file = new File(FilePath);
         try {
             ZipFile zf = new ZipFile(file);
-            ZipEntry zipEntry = zf.getEntry(icopath);
+            ZipEntry zipEntry = zf.getEntry(icoPath);
             InputStream inputStream = zf.getInputStream(zipEntry);
             byte[] bite = readStream(inputStream);
             ImageIcon icon = new ImageIcon(bite);
             Image img = icon.getImage();
-            img = img.getScaledInstance(96, 96, Image.SCALE_SMOOTH);//图片平滑优先，大小默认96*96
+            //img = img.getScaledInstance(96, 96, Image.SCALE_SMOOTH);//图片平滑优先，大小默认96*96
             icon.setImage(img);
             IcoBox.setIcon(icon);
             /*=null;
@@ -211,6 +239,47 @@ public class ApkinfotoUI {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String exportImg() {
+        Image image = ((ImageIcon) IcoBox.getIcon()).getImage();
+        BufferedImage bi = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.drawImage(image, 0, 0, null);
+        g2d.dispose();
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        File file = fsv.getHomeDirectory();
+        String entryFilePath = file.getPath() + "\\OutFile\\Image\\" + icoPath.substring(icoPath.lastIndexOf("/") + 1);
+        File export = new File(entryFilePath);
+        try {
+            if (export.exists()) {
+                export.delete();
+            }
+            export.mkdirs();
+            export.createNewFile();
+            ImageIO.write(bi, "png", export);
+        } catch (IOException e) {
+            e.printStackTrace();
+            export.deleteOnExit();
+        }
+        return entryFilePath;
+    }
+
+    public static String convertFileSize(long size) {
+        long kb = 1024;
+        long mb = kb * 1024;
+        long gb = mb * 1024;
+
+        if (size >= gb) {
+            return String.format("%.1f GB", (float) size / gb);
+        } else if (size >= mb) {
+            float f = (float) size / mb;
+            return String.format(f > 100 ? "%.0f MB" : "%.1f MB", f);
+        } else if (size >= kb) {
+            float f = (float) size / kb;
+            return String.format(f > 100 ? "%.0f KB" : "%.1f KB", f);
+        } else
+            return String.format("%d B", size);
     }
 
     public ItemListener getItemListener() {
