@@ -16,7 +16,7 @@ APK Messenger 是一款电脑端APK信息文件提取工具，由果核剥壳网
 ### 软件部分按钮不能使用，要读取apk信息，直接把文件拖到软件即可
 ![img](https://github.com/g19980115/APKMessenger/blob/master/apkmessenger1.png)
 
-### 新增
+### 新增（2019-06-21）
 新增默认显示中文应用名  
 新增文件大小显示  
 完成复制按钮  
