@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/WinMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/WinMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="实现复制按钮的功能" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +17,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="105">
               <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -34,14 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="204" column="72" lean-forward="true" selection-start-line="204" selection-start-column="72" selection-end-line="204" selection-end-column="72" />
-              <folding>
-                <element signature="e#8274#8440#0" expanded="true" />
-                <element signature="e#8439#8440#0" expanded="true" />
-                <element signature="e#10596#10762#0" expanded="true" />
-                <element signature="e#10761#10762#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="309">
+              <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="211" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -49,12 +38,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/ApkinfotoUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="2037">
               <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6601#6602#0" expanded="true" />
-                <element signature="e#6645#6646#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,9 +59,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-405">
+            <state relative-caret-position="2163">
               <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
               <folding>
+                <element signature="e#6157#6158#0" expanded="true" />
                 <element signature="e#6220#6221#0" expanded="true" />
               </folding>
             </state>
@@ -156,6 +144,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,7 +177,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,25 +307,32 @@
       <workItem from="1527293442190" duration="539000" />
       <workItem from="1527294010816" duration="32000" />
       <workItem from="1561089255879" duration="9867000" />
+      <workItem from="1561104021254" duration="723000" />
     </task>
+    <task id="LOCAL-00001" summary="实现复制按钮的功能">
+      <created>1561104104542</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561104104542</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121853000" />
+    <option name="totallyTimeSpent" value="122576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="39" width="1400" height="875" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24104477" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24477611" />
       <window_info id="Structure" order="1" weight="0.24479167" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Duplicate detector" weight="0.32928476" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32928476" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22807017" />
@@ -349,7 +344,9 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3280255" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Duplicate detector" order="11" weight="0.32928476" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -359,10 +356,15 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现复制按钮的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现复制按钮的功能" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/WindowMain.java" />
@@ -412,16 +414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -500,23 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
-          <folding>
-            <element signature="e#6220#6221#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ToolUtil/SoInfoUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -532,28 +507,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/ApkinfotoUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="2037">
           <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6601#6602#0" expanded="true" />
-            <element signature="e#6645#6646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToolUtil/SoInfoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2163">
+          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+          <folding>
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6220#6221#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="204" column="72" lean-forward="true" selection-start-line="204" selection-start-column="72" selection-end-line="204" selection-end-column="72" />
-          <folding>
-            <element signature="e#8274#8440#0" expanded="true" />
-            <element signature="e#8439#8440#0" expanded="true" />
-            <element signature="e#10596#10762#0" expanded="true" />
-            <element signature="e#10761#10762#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="309">
+          <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="211" selection-end-column="54" />
         </state>
       </provider>
     </entry>
