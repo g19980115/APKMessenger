@@ -15,7 +15,7 @@
 新增导出图片按钮
 
 ## 相关说明  
-本软件为APKMessenger的复刻版本，原软件为易语言开发迭代到了2.5版本，下载地址：<s>https://www.ghboke.com/apkinfo.html</s>  
+本软件为APKMessenger的复刻版本，原软件为易语言开发迭代到了2.5版本，下载地址：<s>https://www.ghboke.com/apkinfo.html</s> http://www.pc6.com/softview/SoftView_538551.html  
 本JAVA源代码实现了发行版本的大部分功能，如果要用于生产环境，建议您下载上面地址上面的版本。  
 开发工具：IDEA  
 
