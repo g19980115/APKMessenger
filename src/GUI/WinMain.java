@@ -66,7 +66,7 @@ public class WinMain {
 
     public void CreatWin() {
         setUI();
-        win = new JFrame("APK Messenger v3.0");
+        win = new JFrame("APK Messenger v3.1");
         win.setSize(586, 309);
         win.setLocationRelativeTo(null);
         win.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

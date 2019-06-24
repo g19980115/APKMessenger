@@ -6,9 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="修改软件截图">
+    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="修改jar包引用aapt的方式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apkmsg.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apkmsg.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$3.class" afterDir="false" />
@@ -17,10 +16,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/apkmsg/apkinfo/ApkUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/apkinfo/ApkUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/WinMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/WinMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="88" column="49" lean-forward="true" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+            <state relative-caret-position="1617">
+              <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1625#1626#0" expanded="true" />
@@ -199,6 +194,11 @@
             </path>
             <path>
               <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
+              <item name="APKMessenger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -211,7 +211,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561372953319" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561373865203" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -341,7 +341,7 @@
       <workItem from="1561089255879" duration="9867000" />
       <workItem from="1561104021254" duration="2329000" />
       <workItem from="1561170771929" duration="1676000" />
-      <workItem from="1561345581427" duration="15784000" />
+      <workItem from="1561345581427" duration="16404000" />
     </task>
     <task id="LOCAL-00001" summary="实现复制按钮的功能">
       <created>1561104104542</created>
@@ -364,11 +364,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561104880127</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="修改jar包引用aapt的方式">
+      <created>1561373851044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561373851044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141642000" />
+    <option name="totallyTimeSpent" value="142262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="99" width="1400" height="875" extended-state="0" />
@@ -413,7 +420,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现复制按钮的功能" />
     <MESSAGE value="修改软件截图" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改软件截图" />
+    <MESSAGE value="修改jar包引用aapt的方式" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改jar包引用aapt的方式" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/WindowMain.java" />
@@ -689,8 +697,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="88" column="49" lean-forward="true" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+        <state relative-caret-position="1617">
+          <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1625#1626#0" expanded="true" />
