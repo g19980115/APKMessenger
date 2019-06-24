@@ -1,10 +1,7 @@
 package apkinfo;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javax.swing.filechooser.FileSystemView;
+import java.io.*;
 
 public class ApkUtil {
 
@@ -45,12 +42,14 @@ public class ApkUtil {
         this.aaptToolPath = aaptToolPath;
     }
 
-    public ApkInfo parseApk(String apkPath) {
+    public ApkInfo parseApk(String apkPath) throws Exception {
         String aaptTool = aaptToolPath + getAaptToolName();
         Process process = null;
         InputStream inputStream = null;
         BufferedReader bufferedReader = null;
         try {
+            aaptTool = getAaptHomePath();
+
             process = builder.command(aaptTool, "d", "badging", apkPath).start();
             inputStream = process.getInputStream();
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
@@ -63,9 +62,9 @@ public class ApkUtil {
                 //System.out.println("全部文本"+temp);
             }
             return apkInfo;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            throw e;
         } finally {
             if (process != null) {
                 process.destroy();
@@ -84,6 +83,15 @@ public class ApkUtil {
                     e.printStackTrace();
                 }
             }
+            //删除aapt临时文件
+            try {
+                if (aaptTool != null) {
+                    File export = new File(aaptTool);
+                    export.deleteOnExit();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -93,6 +101,57 @@ public class ApkUtil {
             aaptToolName += ".exe";
         }
         return aaptToolName;
+    }
+
+
+    private String getAaptHomePath() {
+        String aaptTool = aaptToolPath + getAaptToolName();
+
+        String tempPath = System.getProperty("java.io.tmpdir") + File.separator;//获取临时文件目录
+        InputStream is = null;
+        File sourceAapt = new File(aaptTool);
+        if (sourceAapt.exists()) {
+            try {
+                is = new FileInputStream(sourceAapt);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            is = this.getClass().getResourceAsStream("/aapt/" + getAaptToolName());
+        }
+        //BufferedInputStream in = null;
+        //BufferedOutputStream out = null;
+        try {
+            int byteread = 0;
+            File export = new File(tempPath + getAaptToolName());
+            FileOutputStream fs = new FileOutputStream(export.getPath());
+            byte[] buffer = new byte[1444];
+
+            while ((byteread = is.read(buffer)) != -1) {
+                fs.write(buffer, 0, byteread);
+            }
+            is.close();
+            fs.close();
+            return export.getPath();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //try {
+            //    if (in != null) {
+            //        in.close();
+            //    }
+            //} catch (Exception e) {
+            //    e.printStackTrace();
+            //}
+            //try {
+            //    if (out != null) {
+            //        out.close();
+            //    }
+            //} catch (Exception e) {
+            //    e.printStackTrace();
+            //}
+        }
+        return null;
     }
 
     private void setApkInfoProperty(ApkInfo apkInfo, String source) {
@@ -108,7 +167,7 @@ public class ApkUtil {
             String key = getKeyBeforeColon(source);
             String value = getPropertyInQuote(source);
             apkInfo.addToIcons(key, value);
-            if (key.equals("application-icon-320")) {
+            if (key.equals(ApkInfo.APPLICATION_ICON_320)) {
                 apkInfo.setIcon(value);
             }
 

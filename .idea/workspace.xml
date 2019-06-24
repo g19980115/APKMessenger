@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="apkmsg:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="实现复制按钮的功能" />
+    <list default="true" id="c4de9f88-69e0-4aea-87f8-095b5cb78072" name="Default" comment="修改软件截图">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apkmsg.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apkmsg.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/ApkinfotoUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/GUI/WinMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/apkmsg/apkinfo/ApkUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/apkmsg/apkinfo/ApkUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/WinMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/WinMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +38,25 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="403" column="59" selection-start-line="403" selection-start-column="59" selection-end-line="403" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/ApkinfotoUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3236">
+              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,43 +65,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
+        <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="211" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/ApkinfotoUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2037">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+            <state relative-caret-position="460">
+              <caret line="88" column="49" lean-forward="true" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1625#1626#0" expanded="true" />
+                <element signature="e#1660#1661#0" expanded="true" />
+                <element signature="e#1716#1717#0" expanded="true" />
+                <element signature="e#1764#1765#0" expanded="true" />
+                <element signature="e#8109#8110#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ToolUtil/SoInfoUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2163">
-              <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+            <state>
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding>
-                <element signature="e#6157#6158#0" expanded="true" />
-                <element signature="e#6220#6221#0" expanded="true" />
+                <element signature="e#1601#1602#0" expanded="true" />
+                <element signature="e#1632#1633#0" expanded="true" />
+                <element signature="e#1848#1849#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
+                <element signature="e#2165#2166#0" expanded="true" />
+                <element signature="e#2207#2208#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>label</find>
-      <find>icons</find>
       <find>获取网络状态</find>
       <find>Edit_PackageName</find>
       <find>label6</find>
@@ -103,6 +130,15 @@
       <find>icoPath</find>
       <find>icon</find>
       <find>jComboBox_lang</find>
+      <find>command</find>
+      <find>command(</find>
+      <find>g</find>
+      <find>getApkMeta</find>
+      <find>leba</find>
+      <find>label</find>
+      <find>apkMetaBuilder</find>
+      <find>parseManifest</find>
+      <find>close(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,18 +158,18 @@
         <option value="$PROJECT_DIR$/src/ToolUtil/PermissionsUtil.java" />
         <option value="$PROJECT_DIR$/src/ToolUtil/tanbaishuo.java" />
         <option value="$PROJECT_DIR$/src/ToolUtil/PermissionsObj.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/ToolUtil/SignUtil.java" />
         <option value="$PROJECT_DIR$/src/ToolUtil/Md5CaculateUtil.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/GUI/WinMain.java" />
         <option value="$PROJECT_DIR$/src/apkinfo/ApkUtil.java" />
         <option value="$PROJECT_DIR$/src/GUI/ApkinfotoUI.java" />
-        <option value="$PROJECT_DIR$/src/GUI/WinMain.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="257" />
-    <option name="y" value="39" />
+    <option name="y" value="99" />
     <option name="width" value="1400" />
     <option name="height" value="875" />
   </component>
@@ -143,8 +179,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="APKMessenger" type="58d84e3e:PackageViewProjectNode" />
+              <item name="apkmsg" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,40 +199,24 @@
             </path>
             <path>
               <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
-              <item name="APKMessenger" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
-              <item name="APKMessenger" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="apkinfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
-              <item name="APKMessenger" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="APKMessenger" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561103953422" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-codec-1.9.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561372953319" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -195,6 +224,9 @@
       <recent name="F:\code\java\apkmsgB\src\GUI" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\john\IdeaProjects\APKMessenger\resources" />
+      <recent name="D:\john\IdeaProjects\APKMessenger\lib" />
+      <recent name="D:\john\IdeaProjects\APKMessenger" />
       <recent name="F:\code\java\apkmsgB\src\GUI" />
     </key>
   </component>
@@ -307,7 +339,9 @@
       <workItem from="1527293442190" duration="539000" />
       <workItem from="1527294010816" duration="32000" />
       <workItem from="1561089255879" duration="9867000" />
-      <workItem from="1561104021254" duration="723000" />
+      <workItem from="1561104021254" duration="2329000" />
+      <workItem from="1561170771929" duration="1676000" />
+      <workItem from="1561345581427" duration="15784000" />
     </task>
     <task id="LOCAL-00001" summary="实现复制按钮的功能">
       <created>1561104104542</created>
@@ -316,17 +350,31 @@
       <option name="project" value="LOCAL" />
       <updated>1561104104542</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改软件截图">
+      <created>1561104791101</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561104791101</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改软件截图">
+      <created>1561104880127</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561104880127</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122576000" />
+    <option name="totallyTimeSpent" value="141642000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="257" y="39" width="1400" height="875" extended-state="0" />
+    <frame x="257" y="99" width="1400" height="875" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24477611" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2522388" />
       <window_info id="Structure" order="1" weight="0.24479167" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -364,7 +412,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现复制按钮的功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现复制按钮的功能" />
+    <MESSAGE value="修改软件截图" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改软件截图" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/WindowMain.java" />
@@ -463,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="1070" column="16" selection-start-line="1070" selection-start-column="16" selection-end-line="1070" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Toolkit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -492,10 +534,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apkmessenger1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/ProcessBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="233" column="34" selection-start-line="233" selection-start-column="26" selection-end-line="233" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/apk-parser-2.6.4.jar!/net/dongliu/apk/parser/bean/ApkMeta.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/apk-parser-2.6.4.jar!/net/dongliu/apk/parser/ApkFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/apk-parser-2.6.4.jar!/net/dongliu/apk/parser/parser/ApkMetaTranslator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="e#8523#8524#0" expanded="true" />
+            <element signature="e#8573#8574#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/apk-parser-2.6.4.jar!/net/dongliu/apk/parser/AbstractApkFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="159" column="33" lean-forward="true" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="403" column="59" selection-start-line="403" selection-start-column="59" selection-end-line="403" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/javax/imageio/ImageIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="1511" column="26" selection-start-line="1511" selection-start-column="26" selection-end-line="1511" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/FileWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/BufferedInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="475" column="16" selection-start-line="475" selection-start-column="16" selection-end-line="475" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/FileOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="810" column="19" selection-start-line="810" selection-start-column="19" selection-end-line="810" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="2215" column="24" selection-start-line="2215" selection-start-column="24" selection-end-line="2215" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/InputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="272" column="16" selection-start-line="272" selection-start-column="16" selection-end-line="272" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/FileInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="323" column="9" lean-forward="true" selection-start-line="323" selection-start-column="9" selection-end-line="323" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToolUtil/SoInfoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        <state>
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
             <element signature="e#1601#1602#0" expanded="true" />
             <element signature="e#1632#1633#0" expanded="true" />
@@ -507,48 +677,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/ApkinfotoUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2037">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+        <state relative-caret-position="-3236">
+          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ToolUtil/SoInfoUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/apkinfo/ApkUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
-          <caret line="111" column="18" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+        <state relative-caret-position="460">
+          <caret line="88" column="49" lean-forward="true" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
           <folding>
-            <element signature="e#6157#6158#0" expanded="true" />
-            <element signature="e#6220#6221#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
+            <element signature="e#8109#8110#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/WinMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="211" column="54" lean-forward="true" selection-start-line="211" selection-start-column="54" selection-end-line="211" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -558,10 +708,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>apkmsg:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -609,6 +761,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

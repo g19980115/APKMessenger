@@ -400,8 +400,12 @@ public class WinMain {
                                 @Override
                                 public void run() {
 
+                                    try {
+                                        apkinfotoUI.OpenApkFile(FileName);
+                                    } catch (Exception e) {
+                                        JOptionPane.showMessageDialog(win, e.getMessage(), "错误", 1);
+                                    }
 
-                                    apkinfotoUI.OpenApkFile(FileName);
                                 }
                             });
                             ThreadMain.start();

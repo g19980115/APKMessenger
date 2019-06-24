@@ -69,7 +69,7 @@ public class ApkinfotoUI {
         jComboBox_lang.addItemListener(itemListener);
     }
 
-    public void OpenApkFile(String FilePath) {
+    public void OpenApkFile(String FilePath) throws Exception{
         this.FilePath = FilePath;
         ApkUtil apkUtil = new ApkUtil();
         ApkInfo apkInfo = apkUtil.parseApk(FilePath);
@@ -109,39 +109,45 @@ public class ApkinfotoUI {
             }
         }
 
-        new Thread(() -> {
-            Edit_MD5.setText("正在读取MD5");
-            File file = new File(FilePath);
-            String md5 = Md5CaculateUtil.getMD5(file);
-            if (md5 == null) md5 = "读取失败";
-            Edit_MD5.setText(md5.toUpperCase());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Edit_MD5.setText("正在读取MD5");
+                File file = new File(FilePath);
+                String md5 = Md5CaculateUtil.getMD5(file);
+                if (md5 == null) md5 = "读取失败";
+                Edit_MD5.setText(md5.toUpperCase());
+            }
         }).start();
 
-        new Thread(() -> {
-            try {
-                Edit_PEInfo.setText("读取加固信息中");
-                List SoList = ZipUtil.readZipFile(FilePath, "lib/");
-                SoInfoUtil soInfoUtil = new SoInfoUtil();
-                String soname = "";
-                for (Object s : SoList) {
-                    System.out.println(s);
-                    File tempFile = new File((String) s);
-                    String fileName = tempFile.getName();
-                    soname = soInfoUtil.IsThisSo(fileName);
-                    if (soname.length() != 0) {
-                        break;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Edit_PEInfo.setText("读取加固信息中");
+                    List SoList = ZipUtil.readZipFile(FilePath, "lib/");
+                    SoInfoUtil soInfoUtil = new SoInfoUtil();
+                    String soname = "";
+                    for (Object s : SoList) {
+                        System.out.println(s);
+                        File tempFile = new File((String) s);
+                        String fileName = tempFile.getName();
+                        soname = soInfoUtil.IsThisSo(fileName);
+                        if (soname.length() != 0) {
+                            break;
+                        }
                     }
-                }
-                if (soname.length() != 0) {
-                    Edit_PEInfo.setText(soname);
-                } else {
-                    Edit_PEInfo.setText("没有加固或者未知加固");
+                    if (soname.length() != 0) {
+                        Edit_PEInfo.setText(soname);
+                    } else {
+                        Edit_PEInfo.setText("没有加固或者未知加固");
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
         }).start();
 
         //图标读取
@@ -283,7 +289,7 @@ public class ApkinfotoUI {
     }
 
     public ItemListener getItemListener() {
-        ItemListener itemListener = new ItemListener() {
+        return new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getItem().equals("默认")) {
@@ -294,7 +300,6 @@ public class ApkinfotoUI {
                 }
             }
         };
-        return itemListener;
     }
 
     public byte[] readStream(InputStream inStream) throws Exception {
