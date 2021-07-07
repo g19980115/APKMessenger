@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import static GUI.WinMain.scale;
+
 public class ApkinfotoUI {
     private JTextField Edit_FilePath;
     private JTextField Edit_AppName;
@@ -69,7 +71,7 @@ public class ApkinfotoUI {
         jComboBox_lang.addItemListener(itemListener);
     }
 
-    public void OpenApkFile(String FilePath) throws Exception{
+    public void OpenApkFile(String FilePath) throws Exception {
         this.FilePath = FilePath;
         ApkUtil apkUtil = new ApkUtil();
         ApkInfo apkInfo = apkUtil.parseApk(FilePath);
@@ -215,11 +217,12 @@ public class ApkinfotoUI {
             }
         };
         jTable_Permissions.setModel(model);
+        jTable_Permissions.setRowHeight((int) (20 * scale));
         jTable_Permissions.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        jTable_Permissions.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTable_Permissions.getColumnModel().getColumn(1).setPreferredWidth(120);
-        jTable_Permissions.getColumnModel().getColumn(2).setPreferredWidth(120);
-        jTable_Permissions.getColumnModel().getColumn(3).setPreferredWidth(400);
+        jTable_Permissions.getColumnModel().getColumn(0).setPreferredWidth((int) (40 * scale));
+        jTable_Permissions.getColumnModel().getColumn(1).setPreferredWidth((int) (120 * scale));
+        jTable_Permissions.getColumnModel().getColumn(2).setPreferredWidth((int) (120 * scale));
+        jTable_Permissions.getColumnModel().getColumn(3).setPreferredWidth((int) (400 * scale));
 
         System.out.println("iconpath=" + icoPath);
         //end

@@ -42,7 +42,7 @@ public class WinMain {
     private JTextField Edit_PEInfo;
     private JTextField Edit_Json;
     private JTextField Edit_FileSize;
-    private JButton Btn_ll;
+    private JButton Btn_ll, Btn_pathCopy;
     private JButton Btn_AppName;
     private JButton Btn_PackageName;
     private JButton Btn_VersionName;
@@ -63,11 +63,17 @@ public class WinMain {
     private JTable jTable_Sign;
     private JTable jTable_Otherinfo;
     private final Color WRITE = new Color(16777215);
+    public static float scale = 1.8f;
+    private int maxHeight = 567;
 
     public void CreatWin() {
         setUI();
-        win = new JFrame("APK Messenger v3.1");
-        win.setSize(586, 309);
+        int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+        if (screenWidth > 1500) {
+            scale = screenWidth / 1500f;
+        }
+        win = new JFrame("APK Messenger v3.2");
+        win.setSize((int) (586 * scale), (int) (309 * scale));
         win.setLocationRelativeTo(null);
         win.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         win.setResizable(false);
@@ -80,6 +86,11 @@ public class WinMain {
         Menu menu_3 = new Menu("工具");
         Menu menu_4 = new Menu("帮助");
 
+        Font font = new Font(null, 0, (int) (14 * scale));
+        menu_1.setFont(font);
+        menu_2.setFont(font);
+        menu_3.setFont(font);
+        menu_4.setFont(font);
 
         //软件菜单
         MenuItem menuItem_1_1 = new MenuItem("软件设置");
@@ -124,21 +135,21 @@ public class WinMain {
         //图标图片框
         JLabel IcoBox = new JLabel();
 
-        IcoBox.setBounds(8, 24, 152, 152);
+        IcoBox.setBounds((int) (8 * scale), (int) (24 * scale), (int) (152 * scale), (int) (152 * scale));
         IcoBox.setBorder(BorderFactory.createLineBorder(Color.black));
         ImageIcon andico = new ImageIcon(getClass().getResource("andico.png"));
         IcoBox.setHorizontalAlignment(JLabel.CENTER);//图片居中
         IcoBox.setIcon(andico);
         win.add(IcoBox);
-        label1 = DrowLable("文件路径：", 168, 16, 56, 24);
-        label2 = DrowLable("应用名：", 168, 48, 56, 24);
-        label3 = DrowLable("包名：", 168, 75, 56, 24);
-        label4 = DrowLable("版本名：", 168, 104, 56, 24);
-        label5 = DrowLable("文件MD5：", 168, 136, 56, 24);
-        label6 = DrowLable("加固类型：", 168, 168, 56, 24);
-        label7 = DrowLable("版本号：", 377, 104, 45, 24);
-        label8 = DrowLable("展开》》》", 500, 232, 64, 24);
-        label9 = DrowLable("JSON：", 168, 200, 56, 24);
+        label1 = DrowLable("文件路径：", (int) (168 * scale), (int) (16 * scale), (int) (56 * scale), (int) (24 * scale));
+        label2 = DrowLable("应用名：", (int) (168 * scale), (int) (48 * scale), (int) (56 * scale), (int) (24 * scale));
+        label3 = DrowLable("包名：", (int) (168 * scale), (int) (75 * scale), (int) (56 * scale), (int) (24 * scale));
+        label4 = DrowLable("版本名：", (int) (168 * scale), (int) (104 * scale), (int) (56 * scale), (int) (24 * scale));
+        label5 = DrowLable("文件MD5：", (int) (168 * scale), (int) (136 * scale), (int) (56 * scale), (int) (24 * scale));
+        label6 = DrowLable("加固类型：", (int) (168 * scale), (int) (168 * scale), (int) (56 * scale), (int) (24 * scale));
+        label7 = DrowLable("版本号：", (int) (377 * scale), (int) (104 * scale), (int) (45 * scale), (int) (24 * scale));
+        label8 = DrowLable("展开》》》", (int) (500 * scale), (int) (232 * scale), (int) (64 * scale), (int) (24 * scale));
+        label9 = DrowLable("JSON：", (int) (168 * scale), (int) (200 * scale), (int) (56 * scale), (int) (24 * scale));
         label8.setCursor(new Cursor(Cursor.HAND_CURSOR));
         label8.addMouseListener(new MouseListener() {
             @Override
@@ -151,12 +162,12 @@ public class WinMain {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if (win.getHeight() == 567) {
+                if (win.getHeight() >= (int) (maxHeight * scale)) {
                     label8.setText("展开》》》");
-                    win.setSize(586, 309);
+                    win.setSize((int) (586 * scale), (int) (309 * scale));
                 } else {
                     label8.setText("收起《《《");
-                    win.setSize(586, 567);
+                    win.setSize((int) (586 * scale), (int) (maxHeight * scale));
                 }
             }
 
@@ -170,18 +181,18 @@ public class WinMain {
         });
         //语言选择下拉列表
         jComboBox_lang = new JComboBox();
-        jComboBox_lang.setBounds(232, 49, 72, 20);
+        jComboBox_lang.setBounds((int) (232 * scale), (int) (49 * scale), (int) (72 * scale), (int) (20 * scale));
         jComboBox_lang.addItem("默认");
         //编辑框绘制
-        Edit_FilePath = DrowEdit("", 232, 16, 256, 24);
-        Edit_AppName = DrowEdit("", 312, 48, 176, 24);
-        Edit_PackageName = DrowEdit("", 232, 75, 256, 24);
-        Edit_VersionName = DrowEdit("", 232, 104, 64, 24);
-        Edit_Version = DrowEdit("", 424, 104, 64, 24);
-        Edit_MD5 = DrowEdit("", 232, 136, 256, 24);
-        Edit_PEInfo = DrowEdit("", 232, 168, 256, 24);
-        Edit_Json = DrowEdit("", 232, 200, 256, 24);
-        Edit_FileSize = DrowEdit("", 8, 186, 64, 24);
+        Edit_FilePath = DrowEdit("", (int) (232 * scale), (int) (16 * scale), (int) ((256 - 24) * scale), (int) (24 * scale));
+        Edit_AppName = DrowEdit("", (int) (312 * scale), (int) (48 * scale), (int) (176 * scale), (int) (24 * scale));
+        Edit_PackageName = DrowEdit("", (int) (232 * scale), (int) (75 * scale), (int) (256 * scale), (int) (24 * scale));
+        Edit_VersionName = DrowEdit("", (int) (232 * scale), (int) (104 * scale), (int) (64 * scale), (int) (24 * scale));
+        Edit_Version = DrowEdit("", (int) (424 * scale), (int) (104 * scale), (int) (64 * scale), (int) (24 * scale));
+        Edit_MD5 = DrowEdit("", (int) (232 * scale), (int) (136 * scale), (int) (256 * scale), (int) (24 * scale));
+        Edit_PEInfo = DrowEdit("", (int) (232 * scale), (int) (168 * scale), (int) (256 * scale), (int) (24 * scale));
+        Edit_Json = DrowEdit("", (int) (232 * scale), (int) (200 * scale), (int) (256 * scale), (int) (24 * scale));
+        Edit_FileSize = DrowEdit("", (int) (8 * scale), (int) (186 * scale), (int) (64 * scale), (int) (24 * scale));
 
         Edit_FilePath.setEditable(false);
         setEditable(false, Edit_FilePath, Edit_AppName, Edit_PackageName,
@@ -189,15 +200,16 @@ public class WinMain {
 
 
         //绘制按钮
-        Btn_ll = DrowBtn("浏览", 497, 16, 72, 24);
-        Btn_AppName = DrowBtn("复制", 497, 46, 72, 24);
-        Btn_PackageName = DrowBtn("复制", 497, 74, 72, 24);
-        Btn_VersionName = DrowBtn("复制", 301, 104, 72, 24);
-        Btn_Version = DrowBtn("复制", 497, 104, 72, 24);
-        Btn_MD5 = DrowBtn("复制", 497, 136, 72, 24);
-        Btn_PEInfo = DrowBtn("复制", 497, 168, 72, 24);
-        Btn_json = DrowBtn("复制", 497, 200, 72, 24);
-        Btn_ExportImg = DrowBtn("导出图片", 82, 186, 80, 24);
+        Btn_ll = DrowBtn("浏览", (int) ((497 + 24) * scale), (int) (16 * scale), (int) (48 * scale), (int) (24 * scale));
+        Btn_pathCopy = DrowBtn("复制", (int) ((497 - 24) * scale), (int) (16 * scale), (int) (48 * scale), (int) (24 * scale));
+        Btn_AppName = DrowBtn("复制", (int) (497 * scale), (int) (46 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_PackageName = DrowBtn("复制", (int) (497 * scale), (int) (74 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_VersionName = DrowBtn("复制", (int) (301 * scale), (int) (104 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_Version = DrowBtn("复制", (int) (497 * scale), (int) (104 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_MD5 = DrowBtn("复制", (int) (497 * scale), (int) (136 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_PEInfo = DrowBtn("复制", (int) (497 * scale), (int) (168 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_json = DrowBtn("复制", (int) (497 * scale), (int) (200 * scale), (int) (72 * scale), (int) (24 * scale));
+        Btn_ExportImg = DrowBtn("导出图片", (int) (82 * scale), (int) (186 * scale), (int) (80 * scale), (int) (24 * scale));
         //事件绑定
         Btn_ll.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
@@ -206,6 +218,7 @@ public class WinMain {
             fileChooser.setFileFilter(fileNameExtensionFilter);
             fileChooser.showOpenDialog(win.getContentPane());
         });
+        Btn_pathCopy.addActionListener(actionListener);
         Btn_AppName.addActionListener(actionListener);
         Btn_PackageName.addActionListener(actionListener);
         Btn_VersionName.addActionListener(actionListener);
@@ -216,7 +229,7 @@ public class WinMain {
         Btn_ExportImg.addActionListener(actionListener);
 
         JCheckBox top = new JCheckBox("窗口顶置");
-        top.setBounds(8, 232, 96, 24);
+        top.setBounds((int) (8 * scale), (int) (232 * scale), (int) (96 * scale), (int) (24 * scale));
         top.setBackground(WRITE);
         top.addActionListener(e -> {
             win.setAlwaysOnTop(top.isSelected());//窗口顶置
@@ -235,9 +248,9 @@ public class WinMain {
         jPanel_Otherinfo.setBackground(WRITE);
         jTabbedPane = new JTabbedPane();
         jTabbedPane.setBackground(WRITE);
-        jPanel_Main.setBounds(8, 264, 560, 248);
+        jPanel_Main.setBounds((int) (8 * scale), (int) (264 * scale), (int) (560 * scale), (int) (248 * scale));
         jPanel_Main.setBackground(WRITE);
-        jTabbedPane.setBounds(8, 0, 550, 240);
+        jTabbedPane.setBounds((int) (8 * scale), (int) (0 * scale), (int) (550 * scale), (int) (240 * scale));
         jPanel_Main.setLayout(null);
         jPanel_Main.add(jTabbedPane);
         jTabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -268,10 +281,10 @@ public class WinMain {
         jTable_PermissionsTableModel.setDataVector(null, jTable_Permissions_colname);
         jTable_Permissions.setModel(jTable_PermissionsTableModel);
         jTable_Permissions.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        jTable_Permissions.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTable_Permissions.getColumnModel().getColumn(1).setPreferredWidth(120);
-        jTable_Permissions.getColumnModel().getColumn(2).setPreferredWidth(120);
-        jTable_Permissions.getColumnModel().getColumn(3).setPreferredWidth(400);
+        jTable_Permissions.getColumnModel().getColumn(0).setPreferredWidth((int) (40 * scale));
+        jTable_Permissions.getColumnModel().getColumn(1).setPreferredWidth((int) (120 * scale));
+        jTable_Permissions.getColumnModel().getColumn(2).setPreferredWidth((int) (120 * scale));
+        jTable_Permissions.getColumnModel().getColumn(3).setPreferredWidth((int) (400 * scale));
         //签名表
         String[] jTable_Sign_colname = {"项目名称", "项目内容"};
         jTable_Sign = new JTable(null, jTable_Sign_colname);
@@ -317,7 +330,7 @@ public class WinMain {
         addobj(Edit_AppName, Edit_FilePath, Edit_MD5, Edit_PackageName, Edit_PEInfo,
                 Edit_Json, Edit_FileSize, Edit_Version, Edit_VersionName);
         addobj(label1, label2, label3, label4, label5, label6, label7, label8, label9);
-        addobj(Btn_AppName, Btn_ll, Btn_MD5, Btn_PackageName, Btn_PEInfo, Btn_json,
+        addobj(Btn_AppName, Btn_ll, Btn_pathCopy, Btn_MD5, Btn_PackageName, Btn_PEInfo, Btn_json,
                 Btn_ExportImg, Btn_Version, Btn_VersionName, jComboBox_lang, top);
         addobj(jPanel_Main);
         addDropTarget(win.getContentPane());
@@ -371,6 +384,8 @@ public class WinMain {
             } else if (source == Btn_ExportImg) {
                 copy(apkinfotoUI.exportImg());
                 JOptionPane.showMessageDialog(win, "已导出到桌面且已复制路径", "注意！", 1);
+            } else if (source == Btn_pathCopy) {
+                copy(Edit_FilePath.getText());
             }
         }
     };
